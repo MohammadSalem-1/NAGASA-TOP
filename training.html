@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التمرين - Galaxy of NAGASA</title>
+    <link rel="stylesheet" href="styles1.css"> <!-- سنضيف ملف CSS لاحقًا -->
+</head>
+<body>
+    <div class="stars"></div> <!-- النجوم الثابتة -->
+    <div class="training-container">
+        <h1>برامج التمرين</h1>
+
+        <div class="training-list">
+            <div class="training-item">
+                <h2>تمرين القوة</h2>
+                <p>يركز على بناء قوة العضلات والقدرة على التحمل.</p>
+                <button onclick="toggleDetails('strength')">تعرف أكثر</button>
+                <div id="strength" class="details" style="display:none;">
+                    <p>تفاصيل عن تمرين القوة: هذا البرنامج مصمم لزيادة قوة العضلات، والتحمل، والأداء البدني العام.</p>
+                </div>
+            </div>
+
+            <div class="training-item">
+                <h2>تمرين القلب</h2>
+                <p>يحسن صحة القلب والقدرة على التحمل.</p>
+                <button onclick="toggleDetails('cardio')">تعرف أكثر</button>
+                <div id="cardio" class="details" style="display:none;">
+                    <p>تفاصيل عن تمرين القلب: هذا البرنامج يساعد على تحسين صحة القلب، والقدرة على التحمل، واللياقة القلبية العامة.</p>
+                </div>
+            </div>
+
+            <div class="training-item">
+                <h2>تمرين المرونة</h2>
+                <p>يعزز المرونة وحركة المفاصل.</p>
+                <button onclick="toggleDetails('flexibility')">تعرف أكثر</button>
+                <div id="flexibility" class="details" style="display:none;">
+                    <p>تفاصيل عن تمرين المرونة: يركز هذا التمرين على تمارين التمدد التي تزيد من المرونة وتمنع الإصابات.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- زر قياس سرعة رد الفعل -->
+        <button onclick="startReactionTest()">اختبر سرعة رد فعلك</button>
+
+        <div id="reactionArea" style="position:relative; height: 300px;">
+            <!-- مكان ظهور العلامة العشوائية -->
+        </div>
+
+        <p id="reactionMessage"></p>
+
+        <a href="index.html" class="back-btn">الرجوع إلى الصفحة الرئيسية</a>
+    </div>
+
+    <script>
+        let reactionTimeout;
+        let targetElement;
+
+        // دالة لعرض أو إخفاء التفاصيل عند الضغط على زر "تعرف أكثر"
+        function toggleDetails(id) {
+            const details = document.getElementById(id);
+            if (details.style.display === "none") {
+                details.style.display = "block"; // إظهار التفاصيل
+            } else {
+                details.style.display = "none"; // إخفاء التفاصيل
+            }
+        }
+
+        function startReactionTest() {
+            const levels = [
+                {difficulty: 'سهل', time: 1000},   // 1 ثانية
+                {difficulty: 'متوسط', time: 500},  // 0.5 ثانية
+                {difficulty: 'مستحيل', time: 100},    // 0.1 ثانية
+            ];
+
+            // اختر مستوى عشوائي
+            const level = levels[Math.floor(Math.random() * levels.length)];
+
+            // عرض الرسالة قبل بدء التحدي
+            document.getElementById('reactionMessage').textContent = `المستوى: ${level.difficulty}. استعد...`;
+
+            // انتظار لمدة عشوائية قبل ظهور العلامة
+            setTimeout(() => {
+                showRandomMark(level.time);
+            }, Math.floor(Math.random() * 3000)); // 3 ثواني كحد أقصى
+
+            // مسح الرسالة بعد 3 ثواني
+            setTimeout(() => {
+                document.getElementById('reactionMessage').textContent = '';
+            }, 3000);
+        }
+
+        // وظيفة لإظهار العلامة في مكان عشوائي
+        function showRandomMark(timeLimit) {
+            targetElement = document.createElement('div');
+            targetElement.textContent = 'X';
+            targetElement.style.position = 'absolute';
+            targetElement.style.fontSize = '30px';
+            targetElement.style.color = 'red';
+            targetElement.style.cursor = 'pointer';
+
+            // موقع عشوائي على الصفحة
+            targetElement.style.top = `${Math.random() * 250}px`; // عمودي
+            targetElement.style.left = `${Math.random() * 300}px`; // أفقي
+
+            document.getElementById('reactionArea').appendChild(targetElement);
+
+            // التأكد من أن المستخدم يمكنه الضغط عليها قبل اختفائها
+            reactionTimeout = setTimeout(() => {
+                targetElement.style.display = 'none';
+                document.getElementById('reactionMessage').textContent = 'بطيء جدًا! روح نام !';
+            }, timeLimit);
+
+            targetElement.onclick = function() {
+                clearTimeout(reactionTimeout);  // إيقاف العد التنازلي عند النقر
+                targetElement.style.display = 'none';
+                document.getElementById('reactionMessage').textContent = 'عمل رائع! ضغطت في الوقت المحدد!';
+            };
+        }
+    </script>
+</body>
+</html>
