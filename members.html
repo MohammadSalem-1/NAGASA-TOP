@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأعضاء - Galaxy of NAGASA</title>
+    <link rel="stylesheet" href="styles1.css"> <!-- سنضيف ملف CSS لاحقًا -->
+</head>
+<body>
+    <div class="stars"></div> <!-- النجوم الثابتة -->
+    <div class="members-container">
+        <h1>أعضاء مجتمع Galaxy of NAGASA</h1>
+
+        <div class="members-list">
+            <!-- مؤسس -->
+            <div class="member-card">
+                <h2>MOHAMMAD SALEM</h2>
+                <p>الدور: مؤسس</p>
+                <p>الهوايات: التكنولوجيا، الرياضة، الألعاب الإلكترونية</p>
+                <button class="details-btn" onclick="showDetails('member1')">معلومات إضافية</button>
+                <div id="member1" class="details" style="display:none;">
+                    <p>MOHAMMAD SALEM هو مؤسس مجتمع Galaxy of NAGASA ويدير جميع الأنشطة والتفاعل في المجتمع.</p>
+                </div>
+            </div>
+
+            <!-- مشرف -->
+            <div class="member-card">
+                <h2>Youssef</h2>
+                <p>الدور: مشرف</p>
+                <p>الهوايات: الرياضة</p>
+                <button class="details-btn" onclick="showDetails('member2')">معلومات إضافية</button>
+                <div id="member2" class="details" style="display:none;">
+               <p>يوسف محمود هو مشرف في المجتمع ويقوم بتنظيم الأنشطة الرياضية للمجتمع.</p>  
+               </div>
+            </div>
+
+            <!-- عضو -->
+            <div class="member-card">
+                <h2>Bassel</h2>
+                <p>الدور: عضو</p>
+                <p>الهوايات: الألعاب الإلكترونية، مواعدة الفتيات</p>
+                <button class="details-btn" onclick="showDetails('member3')">معلومات إضافية</button>
+                <div id="member3" class="details" style="display:none;">
+                    <p>Bassel هو عضو في المجتمع ويحب الألعاب الإلكترونية ومتابعة الأحداث الاجتماعية.</p>
+                </div>
+            </div>
+
+            <!-- عضو -->
+            <div class="member-card">
+                <h2>Khaled</h2>
+                <p>الدور: عضو</p>
+                <p>الهوايات: الرياضة</p>
+                <button class="details-btn" onclick="showDetails('member4')">معلومات إضافية</button>
+                <div id="member4" class="details" style="display:none;">
+                    <p>Khaled هو عضو في المجتمع ويفضل الأنشطة الرياضية مثل كرة القدم.</p>
+                </div>
+            </div>
+
+            <!-- عضو -->
+            <div class="member-card">
+                <h2>Bavli Amir</h2>
+                <p>الدور: عضو</p>
+                <p>الهوايات: الألعاب، الرياضة</p>
+                <button class="details-btn" onclick="showDetails('member5')">معلومات إضافية</button>
+                <div id="member5" class="details" style="display:none;">
+                    <p>Bavli Amir هو عضو في المجتمع وله اهتمامات في الألعاب الإلكترونية والرياضة.</p>
+                </div>
+            </div>
+
+            <!-- عضو -->
+            <div class="member-card">
+                <h2>Yassin</h2>
+                <p>الدور: عضو</p>
+                <p>الهوايات: الرياضة، مواعدة العارضة</p>
+                <button class="details-btn" onclick="showDetails('member6')">معلومات إضافية</button>
+                <div id="member6" class="details" style="display:none;">
+                    <p>Yassin هو عضو في المجتمع وله اهتمامات بالرياضة والأزياء.</p>
+                </div>
+            </div>
+
+            <!-- عضو -->
+            <div class="member-card">
+                <h2>Amr</h2>
+                <p>الدور: عضو</p>
+                <p>الهوايات: الألعاب، الرياضة</p>
+                <button class="details-btn" onclick="showDetails('member7')">معلومات إضافية</button>
+                <div id="member7" class="details" style="display:none;">
+                    <p>Amr هو عضو في المجتمع ويشترك في الأنشطة الرياضية بالإضافة إلى الألعاب الإلكترونية.</p>
+                </div>
+            </div>
+
+            <!-- عضو -->
+            <div class="member-card">
+                <h2>Ahmed</h2>
+                <p>الدور: عضو</p>
+                <p>الهوايات: الرياضة</p>
+                <button class="details-btn" onclick="showDetails('member8')">معلومات إضافية</button>
+                <div id="member8" class="details" style="display:none;">
+                    <p>Ahmed هو عضو في المجتمع ومهتم بالرياضة.</p>
+                </div>
+            </div>
+
+            <!-- عضو -->
+            <div class="member-card">
+                <h2>Seif</h2>
+                <p>الدور: عضو</p>
+                <p>الهوايات: الرياضة</p>
+                <button class="details-btn" onclick="showDetails('member9')">معلومات إضافية</button>
+                <div id="member9" class="details" style="display:none;">
+                    <p>Seif هو عضو في المجتمع ويشارك في الأنشطة الرياضية المختلفة.</p>
+                </div>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-btn">الرجوع إلى الصفحة الرئيسية</a>
+    </div>
+
+    <script>
+        // دالة لإظهار أو إخفاء التفاصيل
+        function showDetails(id) {
+            const details = document.getElementById(id);
+            if (details.style.display === "none") {
+                details.style.display = "block"; // إظهار التفاصيل
+            } else {
+                details.style.display = "none"; // إخفاء التفاصيل
+            }
+        }
+    </script>
+</body>
+</html>
