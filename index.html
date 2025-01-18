@@ -1,33 +1,34 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تسجيل الدخول - Galaxy of NAGASA</title>
-    <link rel="stylesheet" href="styles.css">
-    <script>
-        function login() {
-            // عند الضغط على دخول، يتم التوجيه إلى الصفحة الرئيسية
-            window.location.href = "home.html"; // التحويل إلى الصفحة الرئيسية مباشرة
-        }
-    </script>
+    <title>Login Panel</title>
+    <link rel="stylesheet" href="medo.css">
 </head>
 <body>
-    <div class="stars"></div> <!-- النجوم الثابتة -->
     <div class="login-container">
-        <h1>Login to NAGASA</h1>
-        <form onsubmit="event.preventDefault(); login();">
-            <!-- اسم المستخدم -->
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            
-            <!-- كلمة المرور -->
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            
-            <button type="submit">Login</button>
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter your username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" id="firstTime" name="firstTime">
+                <label for="firstTime">First time here?</label>
+            </div>
+            <div class="additional-links">
+                <a href="#" id="forgotPasswordLink">Forgot password?</a>
+            </div>
+            <button type="submit" class="btn">Login</button>
         </form>
-    </div>
-<script src="script.js"></script>
+        <div id="error-message"></div>
+
+</div>
 </body>
 </html>
